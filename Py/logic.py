@@ -21,9 +21,10 @@ else:
 
 mark2 = int(input("Please enter your second mark:\n"))
 
-if mark2 > 85:
-    print("Distinction")
-    if mark2 >= 65:
+if mark2 >= 65:
+    if mark2 > 85:
+        print("Distinction")
+    else:
         print("Pass")
-    else: 
-        print("Fail")
+else:  
+    print("Fail")
