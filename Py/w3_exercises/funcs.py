@@ -56,15 +56,16 @@ define a function
 take a string as an argument
 create 2 lists (upper) & (lower) case 
 append each letter to the corresponding list
+
 '''
 
 def upper_lower_count(str):
     upper = []
     lower = []
     for x in str:
-        if x.islower:
+        if x.islower():
             lower.append(x)
-        elif x.isupper: 
+        elif x.isupper(): 
             upper.append(x)
 
     return len(upper), len(lower)
