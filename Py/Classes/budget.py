@@ -25,9 +25,44 @@ Defining and using functions that take class instances as input parameters
 # When objects are created, they are passed in the name of the category. 
 # The class should have an instance variable called ledger that is a list. 
 
+class Category:
+    balance = 0
+    ledger = list()
 
-
-class Budget():
-
-    def category(self, name):
+    def __init__(self, name):
         self.name = name
+
+    def deposit(self, amount, description):
+        self.amount = amount
+        self.description = description
+        self.balance += amount
+        self.ledger.append({"amount": amount, "description": description})
+        return self.ledger
+
+
+    def withdraw(self, amount, description):
+        self.amount = amount
+        self.description = description
+        self.balance -= amount
+        return {"amount": -abs(amount), "description": description}
+
+    def get_balance(self):
+        return self.balance
+
+
+food = Category("Food")
+print(food.name)
+print(food.deposit(1000, "initial deposit"))
+print(food.withdraw(100.15, "groceries"))
+print(food.withdraw(86.89, "restaurant and more food for dessert"))
+
+print(food.get_balance())
+
+clothing = Category("Clothing")
+print(clothing.deposit(1000, "initial deposit"))
+print(clothing.withdraw(10.15, "Jeans"))
+print(clothing.withdraw(15.89, "Socks"))
+print(clothing.get_balance())
+
+print(food)
+print(clothing)
